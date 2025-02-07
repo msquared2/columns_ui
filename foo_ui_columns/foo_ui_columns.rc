@@ -725,7 +725,13 @@ BEGIN
     COMBOBOX        IDC_RENDERING_MODE,7,39,172,12,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "Force greyscale anti-aliasing",IDC_FORCE_GREYSCALE_ANTIALIASING,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,62,119,10
-    LTEXT           "The above options will only have an effect on parts of the UI that use DirectWrite for text rendering.\n\nThird-party panels may not support these settings.",IDC_STATIC,7,87,313,36
+    LTEXT           "These options will only have an effect on parts of the UI that use DirectWrite for text rendering.\n\nThird-party panels may not support these settings.",IDC_TEXT_RENDERING_NOTES,7,177,313,54
+    CONTROL         "Use alternative emoji processing mode (experimental)",IDC_USE_CUSTOM_EMOJI_PROCESSING,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,83,286,10
+    LTEXT           "Colour emoji font family",IDC_STATIC,7,105,170,8
+    COMBOBOX        IDC_COLOUR_EMOJI_FAMILY,7,116,172,12,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Monochrome emoji font family",IDC_STATIC,7,138,164,8
+    COMBOBOX        IDC_MONOCHROME_EMOJI_FAMILY,7,149,172,12,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
 END
 
 IDD_FONT_AXES DIALOGEX 0, 0, 244, 102

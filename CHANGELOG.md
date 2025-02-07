@@ -10,6 +10,17 @@
   This includes support for SVG font glyphs on recent versions of Windows,
   including Windows 11 emojis.
 
+- An opt-in experimental alternative emoji processing mode for Windows 8.1 and
+  newer was added. [[#1126](https://github.com/reupen/columns_ui/pull/1126)]
+
+  This replaces the default DirectWrite emoji processing to:
+
+  - enable correct handling of emoji variation selectors for emojis that have
+    both text (monochrome) and emoji presentation modes
+  - use the default presentation mode of emojis as defined in the Unicode
+    specification
+  - allow custom colour and monochrome emoji fonts to be used
+
 ### Bug fixes
 
 - A bug where left and/or top padding was missing in Item details when there was
