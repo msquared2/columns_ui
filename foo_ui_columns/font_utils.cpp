@@ -2,6 +2,8 @@
 
 #include "font_utils.h"
 
+#include "font_manager_data.h"
+
 namespace cui::fonts {
 
 void FontDescription::set_dip_size(float size)
@@ -215,8 +217,13 @@ std::optional<uih::direct_write::TextFormat> get_text_format(
 {
     if (const auto text_format = font_api->create_wil_text_format()) {
         try {
-            return context->wrap_text_format(
+            auto wrapped_text_format = context->wrap_text_format(
                 text_format, font_api->rendering_mode(), font_api->force_greyscale_antialiasing());
+
+            if (use_custom_emoji_processing)
+                wrapped_text_format.set_emoji_processing_config(uih::direct_write::EmojiProcessingConfig{
+                    mmh::to_utf16(colour_emoji_font_family.get()), mmh::to_utf16(monochrome_emoji_font_family.get())});
+            return wrapped_text_format;
         }
         CATCH_LOG()
     }
